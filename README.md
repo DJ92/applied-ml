@@ -251,6 +251,36 @@ Demonstrate **breadth and depth** in applied machine learning:
 
 ---
 
+### Reinforcement Learning
+
+#### 11. RL Fundamentals: Q-Learning to PPO
+**Problem**: Learn optimal policies through trial and error
+
+**Implementation**:
+- Q-Learning (tabular + deep Q-networks)
+- Policy gradients (REINFORCE)
+- Actor-Critic methods
+- Proximal Policy Optimization (PPO)
+- Reward shaping and exploration strategies
+
+**Tech**: PyTorch, OpenAI Gym
+
+**Evaluation**:
+- Cumulative reward over episodes
+- Policy convergence analysis
+- Sample efficiency comparison
+- Stability across random seeds
+
+[→ View Code](reinforcement-learning/fundamentals/)
+
+**Highlights**:
+- DQN: Solves CartPole in 200 episodes
+- PPO: 85% win rate on Atari Pong
+- Actor-Critic: 2× sample efficient vs REINFORCE
+- Foundation for understanding RLHF
+
+---
+
 ## 🛠 Common Components
 
 ### Data Pipeline
