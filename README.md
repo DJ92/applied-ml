@@ -1,8 +1,8 @@
 # Applied ML Systems
 
-> Production-shaped machine learning projects focused on ranking, candidate generation, and serving.
+> Production-shaped machine learning projects focused on ranking, candidate generation, serving, and risk decisioning.
 
-This repository is evolving from a broad applied-ML showcase into a tighter portfolio for staff AI/ML systems roles. The first wave centers on commerce-flavored recommendation and relevance systems that mirror the kinds of problems described in my resume: candidate generation, deep ranking, low-latency serving, and measurable trade-offs.
+This repository is evolving from a broad applied-ML showcase into a tighter portfolio for staff AI/ML systems roles. The first waves center on production-shaped recommender and payments problems that mirror the kinds of systems described in my resume: candidate generation, deep ranking, low-latency serving, and real-time risk decisioning.
 
 ## Flagship Projects
 
@@ -24,9 +24,15 @@ Public proof for exporting ranking models to ONNX, benchmarking inference paths,
 
 [-> View Project](serving-systems/01-onnx-latency-lab/)
 
+### 4. Real-Time Payment Risk Decisioning
+
+Public proof for fraud capture vs customer friction trade-offs, event-time feature engineering, review-queue management, and low-latency scoring paths in payment flows.
+
+[-> View Project](risk-systems/01-realtime-payment-risk-decisioning/)
+
 ## Shared Data Contract
 
-All three projects share a common interaction-table convention documented in [data/README.md](data/README.md). The primary target dataset is the Criteo Sponsored Search Conversion Logs dataset, with a MovieLens-plus-synthetic-metadata fallback documented in the same place.
+The recommender projects share a common interaction-table convention documented in [data/README.md](data/README.md). The risk project adds a second public-safe dataset path for PaySim-style payment events so the repository now covers both recommendation and fraud/risk systems.
 
 ## Repository Structure
 
@@ -40,6 +46,8 @@ Applied-ML/
 │   └── 01-dcnv2-commerce-ranking/
 ├── recommendation-systems/
 │   └── 01-two-tower-candidate-generation/
+├── risk-systems/
+│   └── 01-realtime-payment-risk-decisioning/
 └── serving-systems/
     └── 01-onnx-latency-lab/
 ```
@@ -49,8 +57,9 @@ Applied-ML/
 - Deep ranking systems with realistic sparse and dense feature mixes
 - Candidate generation systems that connect retrieval quality to downstream rankers
 - Serving-path design under latency budgets, online feature access, and graceful degradation
+- Fraud and risk decisioning systems that expose latency, thresholding, and manual-review trade-offs
 - Documentation that makes trade-offs, failure modes, and production follow-ups explicit
 
 ## Planned Next Areas
 
-Future waves can extend this repo into fraud/risk decisioning, experimentation systems, and classical ML baselines that support system design discussions. For now, the priority is to make the ranking, retrieval, and serving stack concrete and public-safe.
+Future waves can extend this repo into experimentation systems, classical ML baselines, and broader decisioning simulations that support system design discussions. For now, the priority is to make the ranking, retrieval, serving, and risk stack concrete and public-safe.

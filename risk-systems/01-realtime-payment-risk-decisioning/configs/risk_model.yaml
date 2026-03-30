@@ -1,0 +1,38 @@
+data:
+  raw_path: ../../data/raw/paysim.csv
+  processed_path: ../../data/processed/payment_risk_events.csv
+  time_column: step
+  target: is_fraud
+  split_column: split
+  split_ratios: [0.7, 0.15, 0.15]
+features:
+  categorical_features:
+    - type
+  dense_features:
+    - amount
+    - hour_of_day
+    - day_index
+    - customer_prior_txn_count
+    - customer_avg_amount
+    - customer_prior_fraud_rate
+    - destination_prior_txn_count
+    - destination_avg_amount
+    - hours_since_prev_customer_txn
+    - origin_balance_gap
+    - destination_balance_gap
+    - is_flagged_fraud_signal
+thresholds:
+  approve: 0.18
+  review: 0.6
+review_queue:
+  analyst_capacity: 50
+  target_review_rate: 0.2
+costs:
+  fraud_miss_cost: 25.0
+  false_positive_cost: 3.0
+  manual_review_cost: 0.4
+training:
+  seed: 7
+  max_iter: 400
+  class_weight: balanced
+  checkpoint_dir: artifacts
