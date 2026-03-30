@@ -1,0 +1,47 @@
+data:
+  path: ../../data/processed/commerce_interactions.csv
+  target: click
+  group_column: session_id
+  split_ratios: [0.7, 0.15, 0.15]
+  categorical_features:
+    - user_id
+    - product_id
+    - category_id
+    - device_type
+  dense_features:
+    - price
+    - discount
+    - query_length
+    - product_age_days
+    - user_recency_days
+  cross_features:
+    - name: user_x_category
+      columns: [user_id, category_id]
+feature_groups:
+  sparse:
+    - user_id
+    - product_id
+    - category_id
+    - device_type
+  dense:
+    - price
+    - discount
+    - query_length
+    - product_age_days
+    - user_recency_days
+  crosses:
+    - user_x_category
+training:
+  seed: 42
+  epochs: 3
+  batch_size: 128
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  checkpoint_dir: checkpoints
+model:
+  name: dcnv2
+  embedding_dim: 16
+  cross_layers: 2
+  low_rank_dim: 16
+  deep_dims: [64, 32]
+  dropout: 0.1

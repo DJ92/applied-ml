@@ -1,0 +1,32 @@
+data:
+  path: ../../data/processed/commerce_interactions.csv
+  user_id_column: user_id
+  item_id_column: product_id
+  target: click
+  user_categorical_features:
+    - user_id
+    - device_type
+  item_categorical_features:
+    - product_id
+    - category_id
+  user_dense_features:
+    - query_length
+    - user_recency_days
+  item_dense_features:
+    - price
+    - discount
+    - product_age_days
+  negative_samples: 3
+  topk: [50, 100, 500]
+training:
+  seed: 42
+  epochs: 3
+  batch_size: 128
+  learning_rate: 0.001
+  checkpoint_dir: checkpoints
+model:
+  name: two_tower
+  embedding_dim: 16
+  tower_dims: [64, 32]
+  output_dim: 32
+  dropout: 0.1
